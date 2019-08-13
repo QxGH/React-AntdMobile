@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+* {
+	margin:0;
+	padding:0;
+}
+body{
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif,"Helvetica Neue",Helvetica;
+  font-size: 14px;
+  color: #333;
+}
+a{
+  color: #1890FF;     
+  text-decoration:none;
+}
+ul,ol{
+	list-style:none;
+}
+html, body, #root, .App {
+  height: 100%;
+  overflow: hidden;
+}
+.App {
+  position: relative;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
