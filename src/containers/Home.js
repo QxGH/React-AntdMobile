@@ -6,8 +6,9 @@ class Home extends Component {
     return (
       <div id="home-container">
         {/*search,state可以自定义，获取方法：this.props.location.search，this.props.location.state*/}
-        <Link to={{ pathname: '/test', search: '?name=homename', state: { mold: 'add' }, aa: 'dddd' }} className="home-link">
-          点击跳转到路由参数search，state使用
+        <h1>Home</h1>
+        <Link to={{ pathname: '/hot'}} className="home-link">
+          点击跳转到路由参数 hot 使用
         </Link>
       </div>
     );

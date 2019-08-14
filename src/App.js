@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
+import Footer from './components/Footer'
+import {withRouter } from "react-router";
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      about: 'APP'
+      about: 'APP',
+      pathName: '/'
     }
   }
   render(){
     return (
-      <div id="App" className="App">
-        {this.props.children}
+      <div id="App" className="App" key={this.props.location.key}>
+        <Footer routerParmes={this.props}></Footer>
       </div>
     )
   }
+  componentDidMount(){
+    // this.setState = {
+    //   pathName: this.props.location.pathName
+    // };
+    console.log(this.props)
+  }
 }
 
-export default App;
+
+export default withRouter(App);
