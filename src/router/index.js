@@ -1,7 +1,7 @@
 
 import App from './../App';
 import Home from '../containers/Home';
-import Hot from '../containers/Hot';
+import Like from '../containers/Like';
 import My from '../containers/My';
 
 import React from 'react';
@@ -13,7 +13,7 @@ const RouterRoot = () => (
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/home" component={Home} />
-        <Route path="/hot" component={Hot} />
+        <Route path="/like" component={Like} />
         <Route path="/my" component={My} />
         <Route path="/" render={() => {return <Redirect to="/" />}} />
       </Switch>

@@ -12,7 +12,7 @@ class Footer extends Component {
     return (
       <TabBar
           unselectedTintColor="#949494"
-          tintColor="#33A3F4"
+          tintColor="#666666"
           barTintColor="white"
           tabBarPosition="bottom"
           prerenderingSiblingsNumber={0}
@@ -23,13 +23,13 @@ class Footer extends Component {
           icon={<div style={{
             width: '22px',
             height: '22px',
-            background: 'url(http://img.qinxus.com/home.svg) center center /  21px 21px no-repeat' }}
+            background: 'url(http://img.qinxus.com/icons_home.svg) center center /  21px 21px no-repeat' }}
           />
           }
           selectedIcon={<div style={{
             width: '22px',
             height: '22px',
-            background: 'url(http://img.qinxus.com/home_fill.svg) center center /  21px 21px no-repeat' }}
+            background: 'url(http://img.qinxus.com/icons_home_fill.svg) center center /  21px 21px no-repeat' }}
           />
           }
           selected={this.state.selectedTab === '/home' || this.state.selectedTab === '/'}
@@ -38,26 +38,26 @@ class Footer extends Component {
           {this.state.selectedTab === "/home" || this.state.selectedTab === "/" ? this.props.routerParmes.children : null}
         </TabBar.Item>
         <TabBar.Item
-          title="热门"
-          key="hot"
+          title="喜欢"
+          key="like"
           icon={
             <div style={{
               width: '22px',
               height: '22px',
-              background: 'url(http://img.qinxus.com/hot.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(http://img.qinxus.com/icons_likes.svg) center center /  21px 21px no-repeat' }}
             />
           }
           selectedIcon={
             <div style={{
               width: '22px',
               height: '22px',
-              background: 'url(http://img.qinxus.com/hot_fill.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(http://img.qinxus.com/icons_likes_fill.svg) center center /  21px 21px no-repeat' }}
             />
           }
-          selected={this.state.selectedTab === '/hot'}
-          onPress={this.handleTabHot.bind(this)}
+          selected={this.state.selectedTab === '/like'}
+          onPress={this.handleTabLike.bind(this)}
         >
-          {this.state.selectedTab === "/hot" ? this.props.routerParmes.children : null}
+          {this.state.selectedTab === "/like" ? this.props.routerParmes.children : null}
         </TabBar.Item>
         <TabBar.Item
           title="我"
@@ -66,14 +66,14 @@ class Footer extends Component {
             <div style={{
               width: '22px',
               height: '22px',
-              background: 'url(http://img.qinxus.com/my.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(http://img.qinxus.com/icons_my.svg) center center /  21px 21px no-repeat' }}
             />
           }
           selectedIcon={
             <div style={{
               width: '22px',
               height: '22px',
-              background: 'url(http://img.qinxus.com/my_fill.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(http://img.qinxus.com/icons_my_fill.svg) center center /  21px 21px no-repeat' }}
             />
           }
           selected={this.state.selectedTab === '/my'}
@@ -92,15 +92,15 @@ class Footer extends Component {
     });
   }
   handleTabHome(){
-    // history.push('home');
+    // 跳转 home
     this.props.routerParmes.history.push('/home')
   }
-  handleTabHot(){
-    // history.push('hot');
-    this.props.routerParmes.history.push('/hot')
+  handleTabLike(){
+    // 跳转 like
+    this.props.routerParmes.history.push('/like')
   }
   handleTabMy(){
-    // history.push('my');
+    // 跳转 my
     this.props.routerParmes.history.push('/my')
   }
 }
