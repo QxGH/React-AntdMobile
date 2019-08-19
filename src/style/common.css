@@ -36,7 +36,6 @@ html, body, #root, .App {
 
 @font-face {
   font-family: 'iconfont';
-  /* project id 1350064 */
   src: url("//at.alicdn.com/t/font_1350064_y29g1szesyl.eot");
   src: url("//at.alicdn.com/t/font_1350064_y29g1szesyl.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_1350064_y29g1szesyl.woff2") format("woff2"), url("//at.alicdn.com/t/font_1350064_y29g1szesyl.woff") format("woff"), url("//at.alicdn.com/t/font_1350064_y29g1szesyl.ttf") format("truetype"), url("//at.alicdn.com/t/font_1350064_y29g1szesyl.svg#iconfont") format("svg");
 }
