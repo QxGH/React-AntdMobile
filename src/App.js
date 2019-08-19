@@ -18,12 +18,6 @@ class App extends Component {
       </div>
     )
   }
-  componentDidMount(){
-    // this.setState = {
-    //   pathName: this.props.location.pathName
-    // };
-    console.log(this.props)
-  }
 }
 
 
