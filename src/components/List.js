@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { ListView } from 'antd-mobile';
-
+import { ListView, Toast } from 'antd-mobile';
 import {withRouter} from "react-router-dom";
 
 
@@ -56,13 +55,13 @@ class List extends Component{
         }}
         dataSource={this.state.dataSource} // 渲染的数据源
         renderFooter={() => (<div style={{textAlign: 'center'}}>
-          {this.state.isLoading ? '骚等' : '我也是有底线的'}
+          {this.state.isLoading ? '骚等...' : '—— 我也是有底线的 ——'}
         </div>)}
         renderRow={row} // 单条数据
-        pageSize={10} // 每次渲染的行数
-        scrollRenderAheadDistance={500} // 当一个行接近屏幕范围多少像素之内的时候，就开始渲染这一行
+        pageSize={20} // 每次渲染的行数
+        scrollRenderAheadDistance={800} // 当一个行接近屏幕范围多少像素之内的时候，就开始渲染这一行
         scrollEventThrottle={20} // 控制在滚动过程中，scroll事件被调用的频率
-        onEndReachedThreshold={100} // 调用onEndReached之前的临界值，单位是像素
+        onEndReachedThreshold={800} // 调用onEndReached之前的临界值，单位是像素
         onEndReached={this.index.bind(this)} // 上拉加载事件
       />
     )
@@ -78,7 +77,7 @@ class List extends Component{
       getUrl = "https://cnodejs.org/api/v1/topics";
       params = {
         page: self.state.pageCurrent, 
-        limit: 10
+        limit: 20
       };
     } else if(this.props.getType === 'collect') {
       getUrl = "https://cnodejs.org/api/v1/topic_collect/QxGh"
@@ -99,7 +98,7 @@ class List extends Component{
       }
     })
     .catch((error)=>{
-      alert("请求数据异常!")
+      Toast.offline('服务器出小差了！', 3);
     })
   }
   listClick(row){

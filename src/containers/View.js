@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
 import axios from 'axios'
+import { Toast, NavBar, Icon } from 'antd-mobile';
 
 
 class View extends Component {
@@ -14,14 +15,26 @@ class View extends Component {
   render() {
     return (
       <div className="view">
-        <h1>{this.state.artice.title}</h1>
-        <div className="artice-info">
-          <span className="info-item">{this.state.loginname}</span>
-          <span className="info-item">{this.state.artice.create_at}</span>
+        <NavBar
+          mode="light"
+          className="view-nav"
+          icon={<Icon type="left" />}
+          onLeftClick={() => this.goback()}
+          rightContent={[
+            <Icon key="1" type="ellipsis" />
+          ]}
+        >主题详情</NavBar>
+        <div className="view-box">
+          <h1>{this.state.artice.title}</h1>
+          <div className="artice-info">
+            <span className="info-item">{this.state.loginname}</span>
+            <span className="info-item">{this.state.artice.create_at}</span>
+          </div>
+          <div className="content-box">
+            <div className="content" dangerouslySetInnerHTML={{__html: this.state.artice.content}}></div>
+          </div>
         </div>
-        <div className="content-box">
-          <div className="content" dangerouslySetInnerHTML={{__html: this.state.artice.content}}></div>
-        </div>
+        
       </div>
     );
   }
@@ -35,7 +48,6 @@ class View extends Component {
     .then((res)=>{
       if(res.data.success){
         let data = res.data.data;
-        console.log(data)
         self.setState({
           artice: data,
           loginname: data.author.loginname
@@ -43,8 +55,11 @@ class View extends Component {
       }
     })
     .catch((error)=>{
-      alert("发生错误")
+      Toast.offline('服务器出小差了！', 3);
     })
+  }
+  goback(){
+    this.props.history.goBack();
   }
 }
 

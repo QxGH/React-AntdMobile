@@ -149,24 +149,38 @@ img {
 }
 
 .view {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.view .view-nav {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.view .view-box {
   overflow-y: auto;
   max-height: 100%;
   font-size: 15px;
   line-height: 1.75;
-  padding: 0 20px 30px;
+  padding: 45px 20px 30px;
 }
 
-.view .artice-info {
+.view .view-box .artice-info {
   font-size: 14px;
   color: #999;
   margin-bottom: 20px;
 }
 
-.view .artice-info .info-item {
+.view .view-box .artice-info .info-item {
   margin-right: 15px;
 }
 
-.view pre {
+.view .view-box pre {
   overflow: auto;
   word-wrap: normal;
   margin: 0;

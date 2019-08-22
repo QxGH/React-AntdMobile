@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import store from '../store/index';
 import axios from 'axios'
+import { Toast } from 'antd-mobile';
 
 class My extends Component {
   constructor(props){
@@ -56,7 +57,7 @@ class My extends Component {
           avatar: res.data.data.avatar_url
         })
       } else {
-        alert("初始化失败!")
+        Toast.offline('服务器出小差了！', 3);
       }
     })
     .catch((error)=>{
