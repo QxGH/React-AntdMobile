@@ -3,7 +3,6 @@ import TabNav from './components/TabNav'
 import View from './containers/View'
 import {withRouter } from "react-router";
 
-
 class App extends Component {
   render(){
     const pathname = this.props.location.pathname;
