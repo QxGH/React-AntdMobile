@@ -55,7 +55,7 @@ class List extends Component{
         }}
         dataSource={this.state.dataSource} // 渲染的数据源
         renderFooter={() => (<div style={{textAlign: 'center'}}>
-          {this.state.isLoading ? <ActivityIndicator className="justify-content" text="Loading..."/>: '—— 我也是有底线的 ——'}
+          {this.state.isLoading ? <ActivityIndicator className="justify-content" text="Loading..."/>: '——我也是有底线的——'}
         </div>)}
         renderRow={row} // 单条数据
         pageSize={20} // 每次渲染的行数
