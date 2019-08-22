@@ -165,3 +165,12 @@ img {
 .view .artice-info .info-item {
   margin-right: 15px;
 }
+
+.view pre {
+  overflow: auto;
+  word-wrap: normal;
+  margin: 0;
+  padding: .85em 1em;
+  margin-bottom: 1.275em;
+  background: #f7f7f7;
+}

@@ -146,4 +146,12 @@ img {
       margin-right: 15px;
     }
   }
+  pre {
+    overflow: auto;
+    word-wrap: normal;
+    margin: 0;
+    padding: .85em 1em;
+    margin-bottom: 1.275em;
+    background: #f7f7f7;
+  }
 }
