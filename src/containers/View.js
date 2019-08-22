@@ -55,7 +55,7 @@ class View extends Component {
       }
     })
     .catch((error)=>{
-      Toast.offline('服务器出小差了！', 3);
+      Toast.offline('服务器开小差了！', 3);
     })
   }
   goback(){

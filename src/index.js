@@ -4,6 +4,9 @@ import './style/common.min.css';
 import * as serviceWorker from './serviceWorker';
 import RouterRoot from './router/index';
 
+// import Vconsole from 'vconsole';
+// new Vconsole();
+
 ReactDOM.render(
   <RouterRoot></RouterRoot>,
   document.getElementById('root')

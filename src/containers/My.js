@@ -25,7 +25,9 @@ class My extends Component {
         <div className="user-card">
           <div className="card-box">
             <div className="avatar-box">
-              {avatar}
+              <div className="avatar-bg">
+                {avatar}
+              </div>
             </div>
             <div className="name-box">
               <span className="name">{this.state.store.login_name}</span>
@@ -40,7 +42,6 @@ class My extends Component {
     this.setState({
       store: store.getState()
     });
-    // console.log('store change')
     // 感知store发生变化之后，从store里获取最新的数据，然后进行设置
   };
   componentDidMount(){
@@ -51,13 +52,12 @@ class My extends Component {
     let url = 'https://cnodejs.org/api/v1/user/'+loginName
     axios.get(url)
     .then((res)=>{
-      console.log(res.data.data)
       if(res.data.success === true){
         this.setState({
           avatar: res.data.data.avatar_url
         })
       } else {
-        Toast.offline('服务器出小差了！', 3);
+        Toast.offline('服务器开小差了！', 3);
       }
     })
     .catch((error)=>{

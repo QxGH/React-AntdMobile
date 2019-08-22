@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { TabBar } from 'antd-mobile';
+import {withRouter} from "react-router-dom";
 
-class Footer extends Component {
+class TabNav extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,7 +36,7 @@ class Footer extends Component {
           selected={this.state.selectedTab === '/home' || this.state.selectedTab === '/'}
           onPress={this.handleTabHome.bind(this)}
         >
-          {this.state.selectedTab === "/home" || this.state.selectedTab === "/" ? this.props.routerParmes.children : null}
+          {(this.state.selectedTab === "/home" || this.state.selectedTab === "/") ? this.props.routerChildren : null}
         </TabBar.Item>
         <TabBar.Item
           title="喜欢"
@@ -57,7 +58,7 @@ class Footer extends Component {
           selected={this.state.selectedTab === '/like'}
           onPress={this.handleTabLike.bind(this)}
         >
-          {this.state.selectedTab === "/like" ? this.props.routerParmes.children : null}
+          {this.state.selectedTab === "/like" ? this.props.routerChildren : null}
         </TabBar.Item>
         <TabBar.Item
           title="我"
@@ -79,7 +80,7 @@ class Footer extends Component {
           selected={this.state.selectedTab === '/my'}
           onPress={this.handleTabMy.bind(this)}
         >
-          {this.state.selectedTab === "/my" ? this.props.routerParmes.children : null}
+          {this.state.selectedTab === "/my" ? this.props.routerChildren : null}
         </TabBar.Item>
       </TabBar>
     );
@@ -88,21 +89,26 @@ class Footer extends Component {
     const self = this;
     // 初始化设置路由
     self.setState({
-      selectedTab: self.props.routerParmes.history.location.pathname
+      selectedTab: self.props.location.pathname
     });
+  }
+  componentWillUnmount(){
+    this.handleTabHome = null;
+    this.handleTabLike = null;
+    this.handleTabMy = null;
   }
   handleTabHome(){
     // 跳转 home
-    this.props.routerParmes.history.push('/home')
+    this.props.history.push("/home");
   }
   handleTabLike(){
     // 跳转 like
-    this.props.routerParmes.history.push('/like')
+    this.props.history.push("/like");
   }
   handleTabMy(){
     // 跳转 my
-    this.props.routerParmes.history.push('/my')
+    this.props.history.push("/my");
   }
 }
 
-export default Footer;
+export default withRouter(TabNav);

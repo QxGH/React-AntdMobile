@@ -100,7 +100,7 @@ img {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url('../assets/img/user_card.png');
+    background-image: url('http://img.qinxus.com/user_card.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     padding: 3%;
@@ -115,12 +115,26 @@ img {
       text-align: center;
       padding-top: 10%;
     }
-    .avatar {
+    .avatar-bg {
+      position: relative;
       width: 50%;
-      height: auto;
+      height: 0;
+      padding-top: 50%;
+      background: #fafafa;
       border: 2px solid #fff;
       border-radius: 50%;
-      vertical-align: middle;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .avatar {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
     .name-box {
       padding-top: 15%;
@@ -166,5 +180,7 @@ img {
       background: #f7f7f7;
     }
   }
-  
+}
+.justify-content {
+  justify-content:center;
 }

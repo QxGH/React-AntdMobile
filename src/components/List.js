@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { ListView, Toast } from 'antd-mobile';
+import { ListView, Toast, ActivityIndicator } from 'antd-mobile';
 import {withRouter} from "react-router-dom";
 
 
@@ -55,7 +55,7 @@ class List extends Component{
         }}
         dataSource={this.state.dataSource} // 渲染的数据源
         renderFooter={() => (<div style={{textAlign: 'center'}}>
-          {this.state.isLoading ? '骚等...' : '—— 我也是有底线的 ——'}
+          {this.state.isLoading ? <ActivityIndicator className="justify-content" text="Loading..."/>: '—— 我也是有底线的 ——'}
         </div>)}
         renderRow={row} // 单条数据
         pageSize={20} // 每次渲染的行数
@@ -71,6 +71,9 @@ class List extends Component{
   }
   index(){
     const self = this;
+    self.setState({
+      isLoading: true
+    });
     let getUrl = '/';
     let params = {}
     if(this.props.getType === 'all'){
@@ -94,11 +97,11 @@ class List extends Component{
         self.setState({
           dataSource: self.state.dataSource.cloneWithRows(self.state.listData),
           isLoading: false
-        })
+        });
       }
     })
     .catch((error)=>{
-      Toast.offline('服务器出小差了！', 3);
+      Toast.offline('服务器开小差了！', 3);
     })
   }
   listClick(row){
