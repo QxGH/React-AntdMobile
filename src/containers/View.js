@@ -52,7 +52,7 @@ class View extends Component {
           artice: data,
           loginname: data.author.loginname
         })
-      }
+      };
     })
     .catch((error)=>{
       Toast.offline('服务器开小差了！', 3);
