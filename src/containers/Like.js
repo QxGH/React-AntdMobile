@@ -5,7 +5,7 @@ class Hot extends Component {
   render() {
     return (
       <div id="like-container" className="container">
-        <List getType="collect"></List>
+        <List getType="collect" routerParmes={this.props}></List>
       </div>
     );
   }

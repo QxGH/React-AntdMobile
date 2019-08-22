@@ -9,7 +9,7 @@ body {
   font-family: "PingFang-SC-Bold","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif,"Helvetica Neue",Helvetica;
   font-size: 14px;
   color: #333;
-  background-color: #fff;
+  background-color: #fff !important;
 }
 
 a {
@@ -24,6 +24,10 @@ ul, ol {
 html, body, #root, .App {
   height: 100%;
   overflow: hidden;
+}
+
+img {
+  max-width: 100%;
 }
 
 .App {
@@ -142,4 +146,22 @@ html, body, #root, .App {
 .user-card .card-box .name {
   color: #fff;
   font-size: 1.43rem;
+}
+
+.view {
+  overflow-y: auto;
+  max-height: 100%;
+  font-size: 15px;
+  line-height: 1.75;
+  padding: 0 20px 30px;
+}
+
+.view .artice-info {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.view .artice-info .info-item {
+  margin-right: 15px;
 }

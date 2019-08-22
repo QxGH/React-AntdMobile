@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <div id="home-container" className="container">
-        <List getType="all"></List>
+        <List getType="all" routerParmes={this.props}></List>
       </div>
     );
   }

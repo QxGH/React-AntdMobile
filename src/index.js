@@ -2,13 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/common.min.css';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from 'react-router-dom';
 import RouterRoot from './router/index';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <RouterRoot></RouterRoot>
-  </BrowserRouter>, 
+  <RouterRoot></RouterRoot>,
   document.getElementById('root')
 );
 
