@@ -30,6 +30,10 @@ img {
   max-width: 100%;
 }
 
+.hide {
+  display: none;
+}
+
 .App {
   position: relative;
   top: 0;
@@ -163,13 +167,8 @@ img {
   font-size: 1.43rem;
 }
 
-pre {
-  overflow: auto;
-  word-wrap: normal;
-  margin: 0;
-  padding: .85em 1em;
-  margin-bottom: 1.275em;
-  background: #f7f7f7;
+.my-list {
+  margin: 10px 0 20px;
 }
 
 .view {
@@ -194,38 +193,47 @@ pre {
   padding: 45px 20px 30px;
 }
 
-.view .view-box .artice-info {
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  margin: 0;
+  padding: .85em 1em;
+  margin-bottom: 1.275em;
+  background: #f7f7f7;
+}
+
+.content .artice-info {
   font-size: 14px;
   color: #999;
   margin-bottom: 20px;
 }
 
-.view .view-box .artice-info .info-item {
+.content .artice-info .info-item {
   margin-right: 15px;
 }
 
-.view .replies-box {
+.content .replies-box {
   padding: 15px 0 0;
   margin: 0 -20px;
   background: #f1f1f1;
 }
 
-.view .replies-box .list {
+.content .replies-box .list {
   background: #fff;
 }
 
-.view .replies-box .list .item {
+.content .replies-box .list .item {
   border-bottom: 1px solid #f1f1f1;
   padding: 10px;
 }
 
-.view .replies-box .list .item .info {
+.content .replies-box .list .item .info {
   font-size: 13px;
   color: #999;
   line-height: 1.75;
 }
 
-.view .replies-box .list .item .message {
+.content .replies-box .list .item .message {
   font-size: 14px;
   color: #333;
   word-break: break-all;
@@ -233,4 +241,9 @@ pre {
 
 .justify-content {
   justify-content: center;
+}
+
+.view {
+  height: 100%;
+  width: 100%;
 }

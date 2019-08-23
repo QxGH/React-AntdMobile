@@ -108,7 +108,7 @@ class List extends Component{
   }
   listClick(row){
     let id = row.id;
-    this.props.history.push({pathname:"/view",state: {id}});
+    this.props.history.push({pathname:"/view/content",state: {id}});
   }
 }
 

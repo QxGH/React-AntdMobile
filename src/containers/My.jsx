@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import store from '../store/index';
 import axios from 'axios'
-import { Toast } from 'antd-mobile';
+import { Toast, List, WingBlank } from 'antd-mobile';
+import {withRouter} from "react-router-dom";
 
 class My extends Component {
   constructor(props){
@@ -34,6 +35,11 @@ class My extends Component {
             </div>
           </div>
         </div>
+        <WingBlank>
+          <List className="my-list">
+            <List.Item arrow="horizontal" onClick={this.goRedux.bind(this)}>Redux</List.Item>
+          </List>
+        </WingBlank>
       </div>
     );
   }
@@ -64,8 +70,9 @@ class My extends Component {
       Toast.offline('服务器开小差了！');
     })
   }
-
-
+  goRedux(){
+    this.props.history.push("/view/redux");
+  }
 }
 
-export default My;
+export default withRouter(My);

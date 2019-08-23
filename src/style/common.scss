@@ -25,6 +25,9 @@ html, body, #root, .App {
 img {
   max-width: 100%;
 }
+.hide{
+  display: none;
+}
 .App {
   position: relative;
   top:0;
@@ -145,13 +148,8 @@ img {
     }
   }
 }
-pre {
-  overflow: auto;
-  word-wrap: normal;
-  margin: 0;
-  padding: .85em 1em;
-  margin-bottom: 1.275em;
-  background: #f7f7f7;
+.my-list {
+  margin: 10px 0 20px;
 }
 .view {
   height: 100%;
@@ -170,13 +168,23 @@ pre {
     font-size: 15px;
     line-height: 1.75;
     padding: 45px 20px 30px;
-    .artice-info {
-      font-size: 14px;
-      color: #999;
-      margin-bottom: 20px;
-      .info-item {
-        margin-right: 15px;
-      }
+  }
+}
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  margin: 0;
+  padding: .85em 1em;
+  margin-bottom: 1.275em;
+  background: #f7f7f7;
+}
+.content {
+  .artice-info {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 20px;
+    .info-item {
+      margin-right: 15px;
     }
   }
   .replies-box {
@@ -204,4 +212,8 @@ pre {
 }
 .justify-content {
   justify-content:center;
+}
+.view {
+  height: 100%;
+  width: 100%;
 }

@@ -6,7 +6,7 @@ import {withRouter } from "react-router";
 class App extends Component {
   render(){
     const pathname = this.props.location.pathname;
-    const main = (pathname === '/view') ? <View></View> : <TabNav routerChildren={this.props.children}></TabNav>
+    const main = (pathname.indexOf('/view') !== -1) ? <View routerChildren={this.props.children}></View> : <TabNav routerChildren={this.props.children}></TabNav>
     return (
       <div id="App" className="App" key={this.props.location.key}>
         {main}
