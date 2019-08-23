@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import RouterRoot from './router/index';
 
 import Vconsole from 'vconsole';
-new Vconsole();
+const Vconsole = new Vconsole();
 
 ReactDOM.render(
   <RouterRoot></RouterRoot>,
