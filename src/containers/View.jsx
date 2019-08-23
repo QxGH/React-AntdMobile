@@ -52,12 +52,11 @@ class View extends Component {
   }
   componentDidMount(){
     this.index();
-    console.log(this.state.replies)
   }
   index(){
     const self = this;
     let id = self.props.location.state.id;
-    axios.get('https://cnodejs.org/api/v1/topic/'+id)
+    axios.get('/topic/'+id)
     .then((res)=>{
       if(res.data.success){
         let data = res.data.data;
@@ -66,10 +65,12 @@ class View extends Component {
           loginname: data.author.loginname,
           replies: data.replies
         })
+      } else {
+        Toast.info('数据获取失败！');
       };
     })
     .catch((error)=>{
-      Toast.offline('服务器开小差了！', 3);
+      Toast.offline('服务器开小差了！');
     })
   }
   goback(){

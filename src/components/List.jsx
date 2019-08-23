@@ -77,13 +77,13 @@ class List extends Component{
     let getUrl = '/';
     let params = {}
     if(this.props.getType === 'all'){
-      getUrl = "https://cnodejs.org/api/v1/topics";
+      getUrl = "/topics";
       params = {
         page: self.state.pageCurrent, 
         limit: 20
       };
     } else if(this.props.getType === 'collect') {
-      getUrl = "https://cnodejs.org/api/v1/topic_collect/QxGh"
+      getUrl = "/topic_collect/QxGh"
     };
     axios.get(getUrl, {params})
     .then((res)=>{
@@ -98,10 +98,12 @@ class List extends Component{
           dataSource: self.state.dataSource.cloneWithRows(self.state.listData),
           isLoading: false
         });
+      } else {
+        Toast.info('数据获取失败！');
       }
     })
     .catch((error)=>{
-      Toast.offline('服务器开小差了！', 3);
+      Toast.offline('服务器开小差了！');
     })
   }
   listClick(row){

@@ -49,7 +49,7 @@ class My extends Component {
   };
   index(){
     let loginName = this.state.store.login_name;
-    let url = 'https://cnodejs.org/api/v1/user/'+loginName
+    let url = '/user/'+loginName
     axios.get(url)
     .then((res)=>{
       if(res.data.success === true){
@@ -57,11 +57,11 @@ class My extends Component {
           avatar: res.data.data.avatar_url
         })
       } else {
-        Toast.offline('服务器开小差了！', 3);
-      }
+        Toast.info('数据获取失败！');
+      };
     })
     .catch((error)=>{
-      alert("error!")
+      Toast.offline('服务器开小差了！');
     })
   }
 
