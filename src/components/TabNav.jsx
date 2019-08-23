@@ -39,7 +39,7 @@ class TabNav extends Component {
           {(this.state.selectedTab === "/home" || this.state.selectedTab === "/") ? this.props.routerChildren : null}
         </TabBar.Item>
         <TabBar.Item
-          title="喜欢"
+          title="收藏"
           key="like"
           icon={
             <div style={{

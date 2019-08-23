@@ -9,7 +9,8 @@ class View extends Component {
     super(props);
     this.state = {
       artice: {},
-      loginname: ''
+      loginname: '',
+      replies: []
     }
   }
   render() {
@@ -33,13 +34,25 @@ class View extends Component {
           <div className="content-box">
             <div className="content" dangerouslySetInnerHTML={{__html: this.state.artice.content}}></div>
           </div>
+          <div className="replies-box">
+            <ul className="list">
+              {
+                this.state.replies.map((item,index)=>(
+                  <li className="item" key={index}>
+                    <div className="info">{item.author.loginname}</div>
+                    <div className="message" dangerouslySetInnerHTML={{__html: item.content}}></div>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
         </div>
-        
       </div>
     );
   }
   componentDidMount(){
     this.index();
+    console.log(this.state.replies)
   }
   index(){
     const self = this;
@@ -50,7 +63,8 @@ class View extends Component {
         let data = res.data.data;
         self.setState({
           artice: data,
-          loginname: data.author.loginname
+          loginname: data.author.loginname,
+          replies: data.replies
         })
       };
     })
