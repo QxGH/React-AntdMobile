@@ -53,7 +53,7 @@ class Content extends Component {
       loading: true
     })
     let id = self.props.location.state.id;
-    axios.get('/topic/'+id)
+    axios.get('https://cnodejs.org/api/v1/topic/'+id)
     .then((res)=>{
       if(res.data.success){
         let data = res.data.data;

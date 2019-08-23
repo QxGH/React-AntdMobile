@@ -77,13 +77,13 @@ class List extends Component{
     let getUrl = '/';
     let params = {}
     if(this.props.getType === 'all'){
-      getUrl = "/topics";
+      getUrl = "https://cnodejs.org/api/v1/topics";
       params = {
         page: self.state.pageCurrent, 
         limit: 20
       };
     } else if(this.props.getType === 'collect') {
-      getUrl = "/topic_collect/QxGh"
+      getUrl = "https://cnodejs.org/api/v1/topic_collect/QxGh"
     };
     axios.get(getUrl, {params})
     .then((res)=>{

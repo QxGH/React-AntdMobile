@@ -55,7 +55,7 @@ class My extends Component {
   };
   index(){
     let loginName = this.state.store.login_name;
-    let url = '/user/'+loginName
+    let url = 'https://cnodejs.org/api/v1/user/'+loginName
     axios.get(url)
     .then((res)=>{
       if(res.data.success === true){
