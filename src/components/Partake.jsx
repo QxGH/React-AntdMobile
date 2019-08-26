@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { List, Toast, ActivityIndicator } from 'antd-mobile';
-import axios from 'axios';
+import axios from '../http/api';
 import {withRouter} from "react-router-dom";
 
 const Item = List.Item;
@@ -43,7 +43,7 @@ class Partake extends Component{
     self.setState({
       loading: true
     });
-    axios.get('https://cnodejs.org/api/v1/user/QxGH')
+    axios.get('/user/QxGH')
     .then((res)=>{
       if(self.state.getType === 'public'){
         self.setState({

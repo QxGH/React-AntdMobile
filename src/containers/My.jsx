@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from '../store/index';
-import axios from 'axios'
+import axios from '../http/api';
 import { Toast, List, WingBlank } from 'antd-mobile';
 import {withRouter} from "react-router-dom";
 
@@ -56,11 +56,11 @@ class My extends Component {
     // 感知store发生变化之后，从store里获取最新的数据，然后进行设置
   };
   componentDidMount(){
-    this.index()
+    this.index();
   };
   index(){
     let loginName = this.state.store.login_name;
-    let url = 'https://cnodejs.org/api/v1/user/'+loginName
+    let url = '/user/'+loginName
     axios.get(url)
     .then((res)=>{
       if(res.data.success === true){

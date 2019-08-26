@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from '../http/api'
 import { ListView, Toast, ActivityIndicator } from 'antd-mobile';
 import {withRouter} from "react-router-dom";
 
@@ -15,7 +15,9 @@ class List extends Component{
       dataSource: dataSource.cloneWithRows({}),
       isLoading: true,
       pageCurrent: 1,
-      listData: []
+      listData: [],
+      getFlag: true,  // 防止index 多次调用
+      collectFlag: true   // 收藏主题没有分页，只需要加载一次
     }
   }
   render(){
@@ -59,9 +61,9 @@ class List extends Component{
         </div>)}
         renderRow={row} // 单条数据
         pageSize={20} // 每次渲染的行数
-        scrollRenderAheadDistance={800} // 当一个行接近屏幕范围多少像素之内的时候，就开始渲染这一行
-        scrollEventThrottle={20} // 控制在滚动过程中，scroll事件被调用的频率
-        onEndReachedThreshold={800} // 调用onEndReached之前的临界值，单位是像素
+        onScroll={() => { console.log('scroll'); }}
+        scrollRenderAheadDistance={500}
+        onEndReachedThreshold={10}
         onEndReached={this.index.bind(this)} // 上拉加载事件
       />
     )
@@ -71,20 +73,24 @@ class List extends Component{
   }
   index(){
     const self = this;
+    if(!self.state.getFlag || !self.state.collectFlag){
+      return;
+    };
     self.setState({
-      isLoading: true
+      isLoading: true,
+      getFlag: false
     });
     let getUrl = '/';
     let params = {}
     if(this.props.getType === 'all'){ // 全部主题
-      getUrl = "https://cnodejs.org/api/v1/topics";
+      getUrl = "/topics";
       params = {
         page: self.state.pageCurrent, 
         limit: 20
       };
     } else if(this.props.getType === 'collect') { // 收藏主题
-      getUrl = "https://cnodejs.org/api/v1/topic_collect/QxGh"
-    }
+      getUrl = "/topic_collect/QxGh"
+    };
     axios.get(getUrl, {params})
     .then((res)=>{
       if(res.data.success){
@@ -95,12 +101,20 @@ class List extends Component{
           listData: newListData
         });
         self.setState({
-          dataSource: self.state.dataSource.cloneWithRows(self.state.listData),
-          isLoading: false
+          dataSource: self.state.dataSource.cloneWithRows(self.state.listData)
         });
+        if(this.props.getType === 'collect') {
+          self.setState({
+            collectFlag: false
+          });
+        };
       } else {
         Toast.info('数据获取失败！');
-      }
+      };
+      self.setState({
+        isLoading: false,
+        getFlag: true
+      });
     })
     .catch((error)=>{
       Toast.offline('服务器开小差了！');

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
-import axios from 'axios'
+import axios from '../http/api';
 import { Toast, ActivityIndicator } from 'antd-mobile';
 
 
@@ -22,7 +22,7 @@ class Content extends Component {
           {
             this.state.replies.map((item,index)=>(
               <li className="item" key={index}>
-                <div className="info">{item.author.loginname}</div>
+                <div className="info">{item.author.loginname} <span className="date">{item.create_at}</span> </div>
                 <div className="message" dangerouslySetInnerHTML={{__html: item.content}}></div>
               </li>
             ))
@@ -53,7 +53,7 @@ class Content extends Component {
       loading: true
     })
     let id = self.props.location.state.id;
-    axios.get('https://cnodejs.org/api/v1/topic/'+id)
+    axios.get('/topic/'+id)
     .then((res)=>{
       if(res.data.success){
         let data = res.data.data;

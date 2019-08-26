@@ -233,6 +233,10 @@ pre {
   line-height: 1.75;
 }
 
+.content .replies-box .list .item .date {
+  margin-left: 10px;
+}
+
 .content .replies-box .list .item .message {
   font-size: 14px;
   color: #333;
