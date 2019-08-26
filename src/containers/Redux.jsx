@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
 import store from '../store/index';
-
+import { Progress, Button, WhiteSpace } from 'antd-mobile';
 
 class Redux extends Component {
   constructor(props){
@@ -17,11 +17,17 @@ class Redux extends Component {
   render() {
     return (
       <div className="redux">
-        <h1>redux</h1>
-        <button onClick={this.add}>add</button>
-        <button onClick={this.sub}>sub</button>
-        <button onClick={this.set}>set</button>
-        <div>{this.state.store.number}</div>
+        <WhiteSpace />
+        <div className="progress-box">
+          <div className="progress"><Progress percent={this.state.store.number} position="normal" /></div>
+          <div aria-hidden="true">{this.state.store.number}%</div>
+        </div>
+        <WhiteSpace />
+        <Button type="primary" disabled={this.state.store.number >= 100} onClick={this.add}>Add</Button>
+        <WhiteSpace />
+        <Button type="warning" disabled={this.state.store.number <= 0} onClick={this.sub}>Sub</Button>
+        <WhiteSpace />
+        <Button onClick={this.set}>Set-60</Button>
       </div>
     );
   }
@@ -45,7 +51,7 @@ class Redux extends Component {
   set(){
     store.dispatch({
       type: 'set_number',
-      number: 300
+      number: 60
     })
   }
 }

@@ -217,3 +217,15 @@ pre {
   height: 100%;
   width: 100%;
 }
+
+.redux {
+  .progress-box{
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    .progress {
+      margin-right: 5px;
+      width: 100%;
+    }
+  }
+}

@@ -4,6 +4,8 @@ import axios from 'axios'
 import { Toast, List, WingBlank } from 'antd-mobile';
 import {withRouter} from "react-router-dom";
 
+const Item = List.Item;
+
 class My extends Component {
   constructor(props){
     super(props);
@@ -37,7 +39,10 @@ class My extends Component {
         </div>
         <WingBlank>
           <List className="my-list">
-            <List.Item arrow="horizontal" onClick={this.goRedux.bind(this)}>Redux</List.Item>
+            <Item arrow="horizontal" onClick={this.goRedux.bind(this)}>Redux</Item>
+            <Item arrow="horizontal" onClick={this.goPublic.bind(this)}>最新发布</Item>
+            <Item arrow="horizontal" onClick={this.goReplies.bind(this)}>最近评论</Item>
+            <Item arrow="horizontal" onClick={this.goLike.bind(this)}>我的收藏</Item>
           </List>
         </WingBlank>
       </div>
@@ -72,6 +77,15 @@ class My extends Component {
   }
   goRedux(){
     this.props.history.push("/view/redux");
+  }
+  goPublic(){
+    this.props.history.push({pathname:"/view/partake", state: {getType: 'public'}});
+  }
+  goReplies(){
+    this.props.history.push({pathname:"/view/partake", state: {getType: 'replies'}});
+  }
+  goLike(){
+    this.props.history.push("/collect");
   }
 }
 

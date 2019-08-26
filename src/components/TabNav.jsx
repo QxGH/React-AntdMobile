@@ -40,7 +40,7 @@ class TabNav extends Component {
         </TabBar.Item>
         <TabBar.Item
           title="收藏"
-          key="like"
+          key="collect"
           icon={
             <div style={{
               width: '22px',
@@ -55,10 +55,10 @@ class TabNav extends Component {
               background: 'url(http://img.qinxus.com/icons_likes_fill.svg) center center /  21px 21px no-repeat' }}
             />
           }
-          selected={this.state.selectedTab === '/like'}
+          selected={this.state.selectedTab === '/collect'}
           onPress={this.handleTabLike.bind(this)}
         >
-          {this.state.selectedTab === "/like" ? this.props.routerChildren : null}
+          {this.state.selectedTab === "/collect" ? this.props.routerChildren : null}
         </TabBar.Item>
         <TabBar.Item
           title="我"
@@ -102,8 +102,8 @@ class TabNav extends Component {
     this.props.history.push("/home");
   }
   handleTabLike(){
-    // 跳转 like
-    this.props.history.push("/like");
+    // 跳转 collect
+    this.props.history.push("/collect");
   }
   handleTabMy(){
     // 跳转 my

@@ -1,5 +1,5 @@
 const defaultState = {
-  number: 100,
+  number: 2,
   login_name: 'QxGH'
 };
 
